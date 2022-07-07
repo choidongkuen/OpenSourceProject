@@ -43,3 +43,5 @@ def main:
     message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로 "Catch Turtle"과 "[Space]"를 출력
 
     input()
+    
+    #testestestestestestestestestestse
