@@ -18,6 +18,25 @@ def game_play(playing):
         sleep_time = random.uniform(1, 2)
         time.sleep(sleep_time)
 
+score = 0
+
+def turn_right():
+    global score
+    if player.position() == (200.00, 0.00):
+        player.hideturtle()
+        score = score + 1
+        show_score()
+
+
+def show_message(up, down):
+    player.goto(0,200)
+    player.write(up, False, "center", (20, "bold"))
+    player.goto(0,-200)
+    player.write(down, False, "center", (15, "bold"))
+    player.goto(0,0)
+    player.showturtle()
+    
+
 def screen_setting():
     screen = t.Screen()
     screen.title("Catch Turtle") # 그래픽 창 이름 지정
@@ -38,7 +57,7 @@ def main:
     screen = screen_setting() # screen 객체 생성
     score_board = score_board_setting() # score_board 객체 생성
 
-    score = 0
+   
 
     location_list = [(0,200), (0,-200), (200,0), (-200,0)] # 거북이의 위치(위, 아래, 오른쪽, 왼쪽) 리스트로 생성
 
@@ -49,6 +68,6 @@ def main:
     screen.onkeypress(down, "Down")
     screen.listen() # 이 명령어를 실행시켜야 키 입력모드가 실행되어 입력된 키에 반응
 
-    message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로 "Catch Turtle"과 "[Space]"를 출력
+    message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로 "Let's Catch Turtle!"과 "[Space]"를 출력
 
     input()
