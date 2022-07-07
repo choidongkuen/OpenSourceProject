@@ -2,7 +2,13 @@ import turtle as t
 import random
 import time
 
-
+def turn_right():
+    global score
+    if player.position() == (200.00, 0.00):
+        player.hideturtle()
+        score = score + 1
+        show_score()
+        
 def screen_setting():
     screen = t.Screen()
     screen.title("Catch Turtle") # 그래픽 창 이름 지정
