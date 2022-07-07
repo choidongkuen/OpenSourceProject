@@ -46,6 +46,13 @@ def turn_up(): # 오른쪽 방향키 함수
         player.hideturtle()
         show_score(score)
         
+def turn_down():
+    global score
+    if player.position() == (0.00, -200.00):
+        score = score + 1
+        player.hideturtle()
+        show_score(score)
+        
 def turn_left():
    global score
    if player.position() == (-200.00, 0.00):
@@ -101,3 +108,4 @@ def main(): # 메인 함수
 
 print("Welcome to the Catch Turtle Game!")
 main() # 메인 함수 호출
+
