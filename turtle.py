@@ -2,6 +2,10 @@ import turtle as t
 import random
 import time
 
+
+
+score = 0
+
 def screen_setting():
     screen = t.Screen()
     screen.title("Catch Turtle") # 그래픽 창 이름 지정
@@ -13,11 +17,11 @@ def score_board_setting():
     score_board.color("white") # 보드판 색깔 지정
     score_board.goto(150,150)
 
+
 def main():
 
-    shape = input("shape : ") # refer to turtle help
-
     player = t.Turtle() # 거북이 객체 생성
+    shape = input("shape : ") # refer to turtle help
     player.shape("turtle")
     player.speed(0)
     player.up()
@@ -36,6 +40,7 @@ def main():
     screen.listen() # 이 명령어를 실행시켜야 키 입력모드가 실행되어 입력된 키에 반응
 
     message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로 "Catch Turtle"과 "[Space]"를 출력
+
 
 print("Welcome to the Catch Turtle Game!")
 initial_score = int(input("initial_score : "))
