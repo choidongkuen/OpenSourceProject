@@ -91,7 +91,7 @@ print("==============GAME START!===============")
 shape = input("shape : ") # refer to turtle help
 
 player = t.Turtle() # 거북이 객체 생성
-player.shape("turtle")
+player.shape(shape)
 player.speed(0)
 player.up()
 
