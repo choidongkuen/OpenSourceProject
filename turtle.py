@@ -110,3 +110,4 @@ screen.listen() # 이 명령어를 실행시켜야 키 입력모드가 실행되
 
 show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로 
 
+
