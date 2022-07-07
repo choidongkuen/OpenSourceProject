@@ -4,27 +4,33 @@ import time
 
 score = 0
 
-def screen_setting():
-    screen = t.Screen()
-    screen.title("Catch Turtle") # 그래픽 창 이름 지정
-    screen.setup(500, 500) # 창 크기 500*500으로 설정
-
-def score_board_setting():
-    score_board = t.Turtle()
-    color = input("Color of score_board : ")
-    score_board.color("white") # 보드판 색깔 지정
-    score_board.goto(150,150)
-
-
-def turn_up():
+def game_end(playing): # 게임 종료 함수
+    global score
+    if not playing:
+        score_board.clear()
+        message("Game Over!", text)
+        text = "Your Score : %d" % score
+        score = 0
+       
+def turn_up(): # 오른쪽 방향키 함수
     global score
     if player.position() == (0.00, 200.00):
         score = score + 1
         player.hideturtle()
         show_score(score)
 
+def screen_setting(): # screen 객체 설정 함수
+    screen = t.Screen()
+    screen.title("Catch Turtle") # 그래픽 창 이름 지정
+    screen.setup(500, 500) # 창 크기 500*500으로 설정
 
-def main():
+def score_board_setting(): # score_board 객체 설정 함수
+    score_board = t.Turtle()
+    color = input("Color of score_board : ")
+    score_board.color("white") # 보드판 색깔 지정
+    score_board.goto(150,150)
+
+def main(): # 메인 함수
 
     player = t.Turtle() # 거북이 객체 생성
     shape = input("shape : ") # refer to turtle help
