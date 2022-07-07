@@ -13,12 +13,13 @@ def score_board_setting():
     score_board.color("white") # 보드판 색깔 지정
     score_board.goto(150,150)
 
-def turn_down():
+def game_end(playing):
     global score
-    if player.position() == (0.00, -200.00):
-        score = score + 1
-        player.hideturtle()
-        show_score(score)
+    if not playing:
+        score_board.clear()
+        message("Game Over!", text)
+        text = "Your Score : %d" % score
+        score = 0
         
 def main:
     player = t.Turtle() # 거북이 객체 생성
