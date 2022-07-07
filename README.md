@@ -1,5 +1,7 @@
 # oss Final Project
 
+# Team name : Team 3
+
 ## Members
 - 최동근(201904536)
 - 이혜미(201904473)
