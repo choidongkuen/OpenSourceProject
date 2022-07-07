@@ -1,10 +1,10 @@
 import turtle as t
 import random
 import time
-        
+
 score = 0
 
-def show_message(up, down): # 메세지 출력 
+def show_message(up, down): # 메세지 출력
     player.goto(0,200)
     player.write(up, False, "center", (20, "bold"))
     player.goto(0,-200)
@@ -38,21 +38,21 @@ def game_end(playing): # 게임 종료 함수
         message("Game Over!", text)
         text = "Your Score : %d" % score
         score = 0
-       
+
 def turn_up(): # 오른쪽 방향키 함수
     global score
     if player.position() == (0.00, 200.00):
         score = score + 1
         player.hideturtle()
         show_score(score)
-        
+
 def turn_down():
     global score
     if player.position() == (0.00, -200.00):
         score = score + 1
         player.hideturtle()
         show_score(score)
-        
+
 def turn_left():
    global score
    if player.position() == (-200.00, 0.00):
@@ -85,7 +85,7 @@ def score_board_setting(): # score_board 객체 설정 함수
 
 # def main(): # 메인 함수
 
-    
+
 
 print("Welcome to the Catch Turtle Game!")
 #main() # 메인 함수 호출
@@ -110,6 +110,4 @@ screen.onkeypress(turn_up, "Up")
 screen.onkeypress(turn_down, "Down")
 screen.listen() # 이 명령어를 실행시켜야 키 입력모드가 실행되어 입력된 키에 반응
 
-show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로 
-
-
+show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로
