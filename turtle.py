@@ -1,6 +1,7 @@
 import turtle as t
 import random
 import time
+        
 
 score = 0
 
@@ -19,12 +20,21 @@ def turn_up(): # 오른쪽 방향키 함수
         player.hideturtle()
         show_score(score)
 
+def turn_right(): # 왼쪽 방향키 함수
+    global score
+    if player.position() == (200.00, 0.00):
+        player.hideturtle()
+        score = score + 1
+        show_score()
+
 def screen_setting(): # screen 객체 설정 함수
+
     screen = t.Screen()
     screen.title("Catch Turtle") # 그래픽 창 이름 지정
     screen.setup(500, 500) # 창 크기 500*500으로 설정
 
 def score_board_setting(): # score_board 객체 설정 함수
+
     score_board = t.Turtle()
     color = input("Color of score_board : ")
     score_board.color("white") # 보드판 색깔 지정
