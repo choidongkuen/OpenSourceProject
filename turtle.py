@@ -11,12 +11,14 @@ def show_message(up, down): # 메세지 출력
     player.write(down, False, "center", (15, "bold"))
     player.goto(0,0)
     player.showturtle()
-    
+
+
 def start(): # 게임 시작
     playing = True
     player.clear()
     playing = play(playing)
-    end(playing)
+    game_end(playing)
+
 
 def game_play(playing): # 게임 진행 함수
     current_time = time.time()
@@ -33,14 +35,6 @@ def game_play(playing): # 게임 진행 함수
         player.goto(location)
         sleep_time = random.uniform(1, 2)
         time.sleep(sleep_time)
-        
- def show_score(score): # 점수 출력
-    score_board.clear()
-    score_board.color("white")
-    score_board.goto(150, 150)
-    score_board.pencolor("black")
-    score_board.write("Score : %d" % score, False, "left", ("Arial", 13, "bold"))
-    score_board.color("white")
 
 
 def game_end(playing): # 게임 종료 함수
