@@ -13,11 +13,11 @@ def score_board_setting():
     score_board.color("white") # 보드판 색깔 지정
     score_board.goto(150,150)
 
-def turn_left():
+def turn_up():
     global score
-    if player.position() == (-200.00, 0.00):
-        player.hideturtle()
+    if player.position() == (0.00, 200.00):
         score = score + 1
+        player.hideturtle()
         show_score(score)
         
 def main:
