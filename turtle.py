@@ -13,7 +13,7 @@ def score_board_setting():
     score_board.goto(150,150)
 
 
-def main:
+def main():
     player = t.Turtle() # 거북이 객체 생성
     player.shape("turtle")
     player.speed(0)
@@ -35,4 +35,3 @@ def main:
 
     message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로 "Catch Turtle"과 "[Space]"를 출력
 
-    input()
