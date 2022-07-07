@@ -2,8 +2,6 @@ import turtle as t
 import random
 import time
 
-
-
 score = 0
 
 def screen_setting():
@@ -16,6 +14,14 @@ def score_board_setting():
     color = input("Color of score_board : ")
     score_board.color("white") # 보드판 색깔 지정
     score_board.goto(150,150)
+
+
+def turn_up():
+    global score
+    if player.position() == (0.00, 200.00):
+        score = score + 1
+        player.hideturtle()
+        show_score(score)
 
 
 def main():
@@ -42,7 +48,6 @@ def main():
     message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로 "Catch Turtle"과 "[Space]"를 출력
 
 
+
 print("Welcome to the Catch Turtle Game!")
-initial_score = int(input("initial_score : "))
-score = initial_score # 획득 점수
 main() # 메인 함수 호출
