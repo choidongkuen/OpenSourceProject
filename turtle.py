@@ -41,12 +41,13 @@ def screen_setting():
     screen = t.Screen()
     screen.title("Catch Turtle") # 그래픽 창 이름 지정
     screen.setup(500, 500) # 창 크기 500*500으로 설정
+    return screen
 
 def score_board_setting():
     score_board = t.Turtle()
     score_board.color("white") # 보드판 색깔 지정
     score_board.goto(150,150)
-
+    return score_board
 
 def main:
     player = t.Turtle() # 거북이 객체 생성
