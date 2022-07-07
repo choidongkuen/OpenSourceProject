@@ -102,7 +102,7 @@ def main(): # 메인 함수
     screen.onkeypress(turn_down, "Down") # 아래 키를 누르면 turn_down 
     screen.listen() # 이 명령어를 실행시켜야 키 입력모드가 실행되어 입력된 키에 반응
 
-    message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로 "Catch Turtle"과 "[Space]"를 출력
+    show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로 "Catch Turtle"과 "[Space]"를 출력
 
 
 
