@@ -2,6 +2,8 @@ import turtle as t
 import random
 import time
 
+score = 0
+
 def screen_setting():
     screen = t.Screen()
     screen.title("Catch Turtle") # 그래픽 창 이름 지정
@@ -22,7 +24,6 @@ def main():
     screen = screen_setting() # screen 객체 생성
     score_board = score_board_setting() # score_board 객체 생성
 
-    score = 0
 
     location_list = [(0,200), (0,-200), (200,0), (-200,0)] # 거북이의 위치(위, 아래, 오른쪽, 왼쪽) 리스트로 생성
 
