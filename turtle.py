@@ -2,7 +2,14 @@ import turtle as t
 import random
 import time
 
-
+def show_message(up, down):
+    player.goto(0,200)
+    player.write(up, False, "center", (20, "bold"))
+    player.goto(0,-200)
+    player.write(down, False, "center", (15, "bold"))
+    player.goto(0,0)
+    player.showturtle()
+    
 def screen_setting():
     screen = t.Screen()
     screen.title("Catch Turtle") # 그래픽 창 이름 지정
