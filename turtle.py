@@ -2,6 +2,21 @@ import turtle as t
 import random
 import time
 
+def game_play(playing):
+    current_time = time.time()
+    maximum = current_time + 30
+
+    while playing:
+        if time.time() > maximum:
+            playing = False
+            return playing
+
+        player.showturtle()
+        player.up()
+        location = random.choice(location_list)
+        player.goto(location)
+        sleep_time = random.uniform(1, 2)
+        time.sleep(sleep_time)
 
 def screen_setting():
     screen = t.Screen()
