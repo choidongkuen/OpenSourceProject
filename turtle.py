@@ -5,6 +5,23 @@ import time
 
 score = 0
 
+def game_play(playing): # 게임 진행 함수
+    current_time = time.time()
+    maximum = current_time + 30
+
+    while playing:
+        if time.time() > maximum:
+            playing = False
+            return playing
+
+        player.showturtle()
+        player.up()
+        location = random.choice(locatoin_list)
+        player.goto(location)
+        sleep_time = random.uniform(1, 2)
+        time.sleep(sleep_time)
+
+
 def game_end(playing): # 게임 종료 함수
     global score
     if not playing:
