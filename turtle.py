@@ -45,6 +45,14 @@ def turn_up(): # 오른쪽 방향키 함수
         score = score + 1
         player.hideturtle()
         show_score(score)
+        
+def turn_left():
+   global score
+   if player.position() == (-200.00, 0.00):
+       player.hideturtle()
+       score = score + 1
+       show_score(score)
+
 
 def turn_right(): # 왼쪽 방향키 함수
     global score
@@ -54,7 +62,6 @@ def turn_right(): # 왼쪽 방향키 함수
         show_score()
 
 def screen_setting(): # screen 객체 설정 함수
-
 
     screen = t.Screen()
     screen.title("Catch Turtle") # 그래픽 창 이름 지정
