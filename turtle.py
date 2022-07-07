@@ -45,10 +45,10 @@ def main(): # 메인 함수
     location_list = [(0,200), (0,-200), (200,0), (-200,0)] # 거북이의 위치(위, 아래, 오른쪽, 왼쪽) 리스트로 생성
 
     screen.onkeypress(game_start, "space") # 스페이스 바를 누르면 start 함수 실행
-    screen.onkeypress(turn_right, "Right") # 오른쪽 키를 누르면 right 함수 실행
-    screen.onkeypress(turn_left, "Left")
-    screen.onkeypress(turn_up, "Up")
-    screen.onkeypress(turn_down, "Down")
+    screen.onkeypress(turn_right, "Right") # 오른쪽 키를 누르면 turn_right 함수 실행
+    screen.onkeypress(turn_left, "Left") # 왼쪽 키를 누르면 turn_left 함수 실행
+    screen.onkeypress(turn_up, "Up") # 위 키를 누르면 turn_up 함수 실행
+    screen.onkeypress(turn_down, "Down") # 아래 키를 누르면 turn_down 
     screen.listen() # 이 명령어를 실행시켜야 키 입력모드가 실행되어 입력된 키에 반응
 
     message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로 "Catch Turtle"과 "[Space]"를 출력
