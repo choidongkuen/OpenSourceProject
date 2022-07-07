@@ -2,6 +2,16 @@ import turtle as t
 import random
 import time
 
+score = 0
+
+def turn_right():
+    global score
+    if player.position() == (200.00, 0.00):
+        player.hideturtle()
+        score = score + 1
+        show_score()
+
+
 def show_message(up, down):
     player.goto(0,200)
     player.write(up, False, "center", (20, "bold"))
@@ -10,6 +20,7 @@ def show_message(up, down):
     player.goto(0,0)
     player.showturtle()
     
+
 def screen_setting():
     screen = t.Screen()
     screen.title("Catch Turtle") # 그래픽 창 이름 지정
@@ -30,7 +41,7 @@ def main:
     screen = screen_setting() # screen 객체 생성
     score_board = score_board_setting() # score_board 객체 생성
 
-    score = 0
+   
 
     location_list = [(0,200), (0,-200), (200,0), (-200,0)] # 거북이의 위치(위, 아래, 오른쪽, 왼쪽) 리스트로 생성
 
