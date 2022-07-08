@@ -73,7 +73,7 @@ def turn_right(): # 왼쪽 방향키 함수
         player.hideturtle()
         score = score + 1
         show_score()
-
+'''
 def screen_setting(): # screen 객체 설정 함수
 
     screen = t.Screen()
@@ -88,7 +88,7 @@ def score_board_setting(): # score_board 객체 설정 함수
     score_board.color("white") # 보드판 색깔 지정
     score_board.goto(150,150)
     return score_board
-
+'''
 # def main(): # 메인 함수
 
 
