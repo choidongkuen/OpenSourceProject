@@ -4,7 +4,7 @@ import time
 from tkinter import *
 
 score = 0
-
+life = 10
 
 # 기본 setting
 
@@ -49,7 +49,8 @@ def game_play(playing): # 게임 진행 함수
     maximum = time.time() + 30
 
     while playing:
-        if time.time() > maximum:
+        global life
+        if time.time() > maximum or life <= 0:
             playing = False
             return playing
 
@@ -70,24 +71,42 @@ def game_end(playing): # 게임 종료 함수
         text = "Your Score : %d" % score
         show_message("Game Over!", text)
         score = 0
+        
 
 def turn_up(): # 위쪽 방향키 함수
-    global score
+    global score,life
+
     if player.position() == (0.00, 200.00) and random_name == shape_list[0]:
         score = score + 2
+        print(player.shape())
         player.settiltangle(-45)  # 추가 : -45도 회전
         player.hideturtle()
 
     elif player.position() == (0.00, 200.00) and random_name == shape_list[1]:
         score = score + 1
+        print(player.shape())
         player.hideturtle()
+        
+    elif player.position() == (0.00, 200.00):
+        score = score + 1
+        player.hideturtle()
+        show_score(score)
+        show_life(life)
+        
+    else :
+        life = life - 1 
+        show_score(score)
+        show_life(life)
 
     show_score(score)
+    
 
 def turn_down(): # 아래쪽 방향키 함수
-    global score
+    global score,life
+
     if player.position() == (0.00, -200.00) and random_name == shape_list[0]:
         score = score + 2
+        print(player.shape())
         player.settiltangle(45)  # 추가 : 45도 회전
         player.hideturtle()
 
@@ -95,32 +114,82 @@ def turn_down(): # 아래쪽 방향키 함수
         score = score + 1
         print(player.shape())
         player.hideturtle()
-    show_score(score)
 
-def turn_left(): # 왼쪽 방향키 함수
-    global score  # 추가
-    if player.position() == (-200.00, 0.00) and random_name == shape_list[0]:
-        score = score + 2
-        player.settiltangle(90)  # 추가 : 90도 회전
-        player.hideturtle()
-
-    elif player.position() == (-200.00, 0.00) and random_name == shape_list[1]:
+    elif player.position() == (0.00, -200.00):
         score = score + 1
         player.hideturtle()
+        show_score(score)
+        show_life(life)
+        
+    else:
+        life = life - 1 
+        show_score(score)
+        show_life(life)
+    
     show_score(score)
+    
+
+def turn_left(): # 왼쪽 방향키 함수
+    global score,life
+    
+    if player.position() == (-200.00, 0.00) and random_name == shape_list[0]:
+        score = score + 2
+        print(player.shape())
+        player.settiltangle(90)  # 추가 : 90도 회전
+        player.hideturtle()
+    
+    
+    elif player.position() == (-200.00, 0.00) and random_name == shape_list[1]:
+        score = score + 1
+        print(player.shape())
+        player.hideturtle()
+        
+  
+   elif player.position() == (-200.00, 0.00):
+       player.hideturtle()
+       score = score + 1
+       show_score(score)
+       show_life(life)
+       
+   else:
+        life = life - 1 
+        show_score(score)
+        show_life(life)
+        
+   show_score(score)
+
+    
 
 
 def turn_right(): # 오른쪽 방향키 함수
-    global score  # 추가
+    global score,life  # 추가
     if player.position() == (200.00, 0.00) and random_name == shape_list[0]:
         score = score + 2
+        print(player.shape())
         player.settiltangle(0)  # 추가 : 머리 방향 그대로
         player.hideturtle()
-
+        
+        
     elif player.position() == (200.00, 0.00) and random_name == shape_list[1]:
         score = score + 1
+        print(player.shape())
         player.hideturtle()
+        
+
+   
+    elif player.position() == (200.00, 0.00):
+        player.hideturtle()
+        score += 1
+        show_score(score)
+        show_life(life)
+        
+    else :
+        life = life - 1 
+        show_score(score)
+        show_life(life)
+        
     show_score(score)
+
 
 def show_score(score): # 점수 출력
     score_board.clear()
@@ -128,6 +197,13 @@ def show_score(score): # 점수 출력
     score_board.goto(150, 150)
     score_board.pencolor("black")
     score_board.write("Score : %d" % score, False, "left", ("Arial", 13, "bold"))
+    score_board.color("white")
+    
+def show_life(life):
+    score_board.color("white")
+    score_board.goto(50, 150)
+    score_board.pencolor("red")
+    score_board.write("Life : %d" % life, False, "left", ("Arial", 13, "bold"))
     score_board.color("white")
 
     
@@ -155,7 +231,8 @@ root = Tk() # tikinter 객체 생성
 root.title("Catch Turtle") # 창 이름
 root.geometry("1200x700") # 창 크기
 
-photo = PhotoImage(file = "/Users/LG/Desktop/전공, 교양/계절학기/오픈소스/tur_project_final/oss_project/images(1).png",master = root) # image
+photo = PhotoImage(file = "/Users/077tech/Desktop/Team3Turtle/oss_project/KakaoTalk_Photo_2022-07-09-16-50-21.png",master = root) # image
+
 
 label1 = Label(root,width = 450,height = 450,relief = "solid",borderwidth = 10,padx = 5, pady = 10,image = photo)
 label1.pack() # L
@@ -182,14 +259,16 @@ def option():
     chkbox3.pack()
 
 
+
 btn1 = Button(root, width=18, height=3, padx=5, pady=10, text="Options", command=option)
 btn1.pack()  # options button
+show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로
 
-
+t.done()
+    
 def exit():  # exit 함수
     global root
     root.destroy()
-
 
 btn2 = Button(root, width=12, height=5, padx=5, pady=10, text="Exit", command=exit)
 btn2.pack()  # Game exit button
