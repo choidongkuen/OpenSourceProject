@@ -174,7 +174,7 @@ root = Tk() # tikinter 객체 생성
 root.title("Catch Turtle") # 창 이름
 root.geometry("1200x700") # 창 크기
 
-photo = PhotoImage(file = "/Users/077tech/Desktop/Team3Turtle/oss_project/KakaoTalk_Photo_2022-07-09-16-50-21.png",master = root) # image
+photo = PhotoImage(file = "/Users/gim-wansig/Desktop/oss_project/oss_project/images (1).png",master = root) # image
 
 label1 = Label(root,width = 450,height = 450,relief = "solid",borderwidth = 10,padx = 5, pady = 10,image = photo)
 label1.pack() # L
@@ -217,16 +217,6 @@ show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화
 t.done()
     
     
-root = Tk()
-root.title("Catch Turtle")
-root.geometry("400x300")
-
-
-bt1 = Button(root,width = 50, height = 30, text = "Game Start", command = main)
-bt1.pack()
-
-
-
 root.mainloop()
 
 
