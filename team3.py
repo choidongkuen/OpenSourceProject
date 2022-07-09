@@ -145,18 +145,18 @@ def turn_left(): # 왼쪽 방향키 함수
         player.hideturtle()
         
   
-   elif player.position() == (-200.00, 0.00):
-       player.hideturtle()
-       score = score + 1
-       show_score(score)
-       show_life(life)
-       
-   else:
+    elif player.position() == (-200.00, 0.00):
+        player.hideturtle()
+        score = score + 1
+        show_score(score)
+        show_life(life)
+           
+    else:
         life = life - 1
         show_score(score)
         show_life(life)
         
-   show_score(score)
+    show_score(score)
 
     
 
@@ -231,7 +231,7 @@ root = Tk() # tikinter 객체 생성
 root.title("Catch Turtle") # 창 이름
 root.geometry("1200x700") # 창 크기
 
-photo = PhotoImage(file = "/Users/077tech/Desktop/Team3Turtle/oss_project/KakaoTalk_Photo_2022-07-09-16-50-21.png",master = root) # image
+photo = PhotoImage(file = "/Users/gim-wansig/Desktop/oss_project/oss_project/images (1).png",master = root) # image
 
 
 label1 = Label(root,width = 450,height = 450,relief = "solid",borderwidth = 10,padx = 5, pady = 10,image = photo)
@@ -264,8 +264,6 @@ btn1 = Button(root, width=18, height=3, padx=5, pady=10, text="Options", command
 btn1.pack()  # options button
 show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로
 
-t.done()
-    
 def exit():  # exit 함수
     global root
     root.destroy()
