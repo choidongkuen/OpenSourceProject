@@ -70,6 +70,7 @@ def game_end(playing): # 게임 종료 함수
         score_board.clear()
         text = "Your Score : %d" % score
         show_message("Game Over!", text)
+        show_message("Insert coins!",text)
         score = 0
         
 
@@ -90,12 +91,10 @@ def turn_up(): # 위쪽 방향키 함수
     elif player.position() == (0.00, 200.00):
         score = score + 1
         player.hideturtle()
-        show_score(score)
         show_life(life)
         
     else :
         life = life - 1
-        show_score(score)
         show_life(life)
 
     show_score(score)
@@ -118,12 +117,10 @@ def turn_down(): # 아래쪽 방향키 함수
     elif player.position() == (0.00, -200.00):
         score = score + 1
         player.hideturtle()
-        show_score(score)
         show_life(life)
         
     else:
         life = life - 1
-        show_score(score)
         show_life(life)
     
     show_score(score)
@@ -148,12 +145,10 @@ def turn_left(): # 왼쪽 방향키 함수
     elif player.position() == (-200.00, 0.00):
         player.hideturtle()
         score = score + 1
-        show_score(score)
         show_life(life)
            
     else:
         life = life - 1
-        show_score(score)
         show_life(life)
         
     show_score(score)
@@ -180,12 +175,10 @@ def turn_right(): # 오른쪽 방향키 함수
     elif player.position() == (200.00, 0.00):
         player.hideturtle()
         score += 1
-        show_score(score)
         show_life(life)
         
     else :
         life = life - 1
-        show_score(score)
         show_life(life)
         
     show_score(score)
