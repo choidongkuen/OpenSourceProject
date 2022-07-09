@@ -5,6 +5,23 @@ from tkinter import *
 
 score = 0
 
+
+# 기본 setting
+
+player = t.Turtle() # 거북이 객체 생성
+screen = t.Screen()
+score_board = t.Turtle()
+
+player.shape("turtle")
+player.speed(0)
+player.up()
+    
+
+screen = t.Screen()
+screen.title("Catch Turtle") # 그래픽 창 이름 지정
+screen.setup(500,500) # 창 크기 500*500으로 설정
+
+
 player = t.Turtle() # 거북이 객체 생성
 player.shape("turtle")
 player.speed(0)
@@ -18,6 +35,8 @@ score_board = t.Turtle()
 score_board.color("white") # 보드판 색깔 지정
 score_board.goto(150,150)
 location_list = [(0,200), (0,-200), (200,0), (-200,0)] # 거북이의 위치(위, 아래, 오른쪽, 왼쪽) 리스트로 생성
+
+
 
 
 def show_message(up, down): # 메세지 출력
@@ -98,29 +117,11 @@ def show_score(score): # 점수 출력
     score_board.write("Score : %d" % score, False, "left", ("Arial", 13, "bold"))
     score_board.color("white")
 
-#def screen_setting(): # screen 객체 설정 함수
-
- #   screen = t.Screen()
- #   screen.title("Catch Turtle") # 그래픽 창 이름 지정
- #   screen.setup(500, 500) # 창 크기 500*500으로 설정
- #   return screen
-
-#def score_board_setting(): # score_board 객체 설정 함수
-
- #   score_board = t.Turtle()
-  #  color = input("Color of score_board : ")
-  #  score_board.color("white") # 보드판 색깔 지정
-  #  score_board.goto(150,150)
-  #  return score_board
-
-# def main(): # 메인 함수
-
+    
+# ========================================================================= #
+# main part
 
 def main(): # 메인 함수 호출
-
-    print("Welcome to the Catch Turtle Game!")
-    print("==============GAME START!===============")
-
 
     screen.onkeypress(start, "space") # 스페이스 바를 누르면 start 함수 실행
     screen.onkeypress(turn_right, "Right") # 오른쪽 키를 누르면 right 함수 실행
@@ -128,6 +129,56 @@ def main(): # 메인 함수 호출
     screen.onkeypress(turn_up, "Up")
     screen.onkeypress(turn_down, "Down")
     screen.listen() # 이 명령어를 실행시켜야 키 입력모드가 실행되어 입력된 키에 반응
+
+    show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면
+
+
+    t.done()
+
+# ========================================================================== #
+# GUI part
+
+root = Tk() # tikinter 객체 생성
+root.title("Catch Turtle") # 창 이름
+root.geometry("1200x700") # 창 크기
+
+photo = PhotoImage(file = "/Users/gim-wansig/Desktop/oss_project/oss_project/images (1).png",master = root) # image
+
+label1 = Label(root,width = 450,height = 450,relief = "solid",borderwidth = 10,padx = 5, pady = 10,image = photo)
+label1.pack() # L
+
+btn0 = Button(root,width = 22,height = 3,padx = 5, pady= 10,text = "Game Start", command = main,highlightcolor = "green")
+btn0.pack() # start button
+
+
+def option():
+    root2 = Tk()
+    root2.title("Options Window")
+    root2.geometry("1200x700")
+    
+    chkbox1 = Checkbutton(root2,text = "score 나타내기")
+    chkbox1.select()
+    chkbox1.pack()
+    
+    chkbox2 = Checkbutton(root2,text = "키보드로 게임하기")
+    chkbox2.select()
+    chkbox2.pack()
+    
+    chkbox3 = Checkbutton(root2,text = "친구와 대결하기")
+    chkbox3.deselect()
+    chkbox3.pack()
+    
+    
+btn1 = Button(root,width = 18,height = 3,padx = 5, pady = 10,text = "Options",command = option)
+btn1.pack() # options button
+
+
+def exit(): # exit 함수
+    root.destroy()
+
+btn2 = Button(root,width = 12,height = 5, padx = 5, pady = 10, text = "Exit",command = exit)
+btn2.pack() # Game exit button
+
 
     show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로
 
@@ -141,6 +192,7 @@ root.geometry("400x300")
 
 bt1 = Button(root,width = 50, height = 30, text = "Game Start", command = main)
 bt1.pack()
+
 
 
 root.mainloop()
