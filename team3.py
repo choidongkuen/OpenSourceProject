@@ -228,16 +228,41 @@ photo = PhotoImage(file = "/Users/gim-wansig/Desktop/oss_project/oss_project/ima
 
 
 label1 = Label(root,width = 450,height = 450,relief = "solid",borderwidth = 10,padx = 5, pady = 10,image = photo)
-label1.pack() # L
+label1.pack()
 
-btn0 = Button(root,width = 22,height = 3,padx = 5, pady= 10,text = "Game Start", command = main,highlightcolor = "green")
+def rule():
+    root = Tk()
+    root.title("Game Rules")
+    root.geometry("400x400")
+    label2 = Label(root,relief = "solid",borderwidth = 10,padx = 5, pady = 10,text = " == 게임 규칙 ==")
+    label2.pack()
+    label3 = Label(root,text = "1: 제한 시간은 30초가 주어집니다.")
+    label3.pack()
+    label4 = Label(root,text = "2: 키보드의 방향키를 이용하여 조작합니다.")
+    label4.pack()
+    label5 = Label(root,text = "3: 거북이 or 원 모양이 랜덤하게 출현합니다. 집중력 필수!")
+    label5.pack()
+    label6 = Label(root,text = "4: 캐릭터 방향과 키보드 방향이 일치시 1점 획득합니다.")
+    label6.pack()
+    
+    
+    chkbox1 = Checkbutton(root, text="규칙을 확인했습니다.")
+    chkbox1.deselect()
+    chkbox1.pack()
+    
+    btn3 = btn1 = Button(root, text= "Start", command=main)
+    btn3.pack()  # options button
+
+    
+
+btn0 = Button(root,width = 22,height = 3,padx = 5, pady= 10,text = "Game Start", command = rule,highlightcolor = "green")
 btn0.pack() # start button
 
 
 def option():
     root2 = Tk()
     root2.title("Options Window")
-    root2.geometry("1200x700")
+    root2.geometry("500x500")
 
     chkbox1 = Checkbutton(root2, text="score 나타내기")
     chkbox1.select()
@@ -252,10 +277,12 @@ def option():
     chkbox3.pack()
 
 
+    
+
 
 btn1 = Button(root, width=18, height=3, padx=5, pady=10, text="Options", command=option)
 btn1.pack()  # options button
-show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로
+
 
 def exit():  # exit 함수
     global root
