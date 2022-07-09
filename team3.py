@@ -4,7 +4,7 @@ import time
 from tkinter import *
 
 score = 0
-
+life = 10
 
 # 기본 setting
 
@@ -60,7 +60,8 @@ def game_play(playing): # 게임 진행 함수
     maximum = current_time + 30
 
     while playing:
-        if time.time() > maximum:
+        global life
+        if time.time() > maximum or life <= 0:
             playing = False
             return playing
 
@@ -82,32 +83,56 @@ def game_end(playing): # 게임 종료 함수
 
 def turn_up(): # 오른쪽 방향키 함수
     global score
+    global life
     if player.position() == (0.00, 200.00):
         score = score + 1
         player.hideturtle()
         show_score(score)
+        show_life(life)
+    else :
+        life = life - 1 
+        show_score(score)
+        show_life(life)
 
 def turn_down():
     global score
+    global life
     if player.position() == (0.00, -200.00):
         score = score + 1
         player.hideturtle()
         show_score(score)
+        show_life(life)
+    else :
+        life = life - 1 
+        show_score(score)
+        show_life(life)
 
 def turn_left():
    global score
+   global life
    if player.position() == (-200.00, 0.00):
        player.hideturtle()
        score = score + 1
        show_score(score)
+       show_life(life)
+   else :
+        life = life - 1 
+        show_score(score)
+        show_life(life)
 
 
 def turn_right(): # 왼쪽 방향키 함수
     global score
+    global life
     if player.position() == (200.00, 0.00):
         player.hideturtle()
         score = score + 1
-        show_score()
+        show_score(score)
+        show_life(life)
+    else :
+        life = life - 1 
+        show_score(score)
+        show_life(life)
 
 def show_score(score): # 점수 출력
     score_board.clear()
@@ -115,6 +140,13 @@ def show_score(score): # 점수 출력
     score_board.goto(150, 150)
     score_board.pencolor("black")
     score_board.write("Score : %d" % score, False, "left", ("Arial", 13, "bold"))
+    score_board.color("white")
+    
+def show_life(life):
+    score_board.color("white")
+    score_board.goto(50, 150)
+    score_board.pencolor("red")
+    score_board.write("Life : %d" % life, False, "left", ("Arial", 13, "bold"))
     score_board.color("white")
 
     
@@ -142,7 +174,7 @@ root = Tk() # tikinter 객체 생성
 root.title("Catch Turtle") # 창 이름
 root.geometry("1200x700") # 창 크기
 
-photo = PhotoImage(file = "/Users/gim-wansig/Desktop/oss_project/oss_project/images (1).png",master = root) # image
+photo = PhotoImage(file = "/Users/077tech/Desktop/Team3Turtle/oss_project/KakaoTalk_Photo_2022-07-09-16-50-21.png",master = root) # image
 
 label1 = Label(root,width = 450,height = 450,relief = "solid",borderwidth = 10,padx = 5, pady = 10,image = photo)
 label1.pack() # L
@@ -180,9 +212,9 @@ btn2 = Button(root,width = 12,height = 5, padx = 5, pady = 10, text = "Exit",com
 btn2.pack() # Game exit button
 
 
-    show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로
+show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로
 
-    t.done()
+t.done()
     
     
 root = Tk()
