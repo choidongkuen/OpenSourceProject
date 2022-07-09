@@ -12,7 +12,8 @@ player = t.Turtle() # 거북이 객체 생성
 screen = t.Screen()
 score_board = t.Turtle()
 
-player.shape("turtle")
+shape_list = ["turtle", "circle"] # 추가 : 캐릭터 모양 추가
+player.shape(shape_list[0])
 player.speed(0)
 player.up()
     
@@ -22,22 +23,10 @@ screen.title("Catch Turtle") # 그래픽 창 이름 지정
 screen.setup(500,500) # 창 크기 500*500으로 설정
 
 
-player = t.Turtle() # 거북이 객체 생성
-player.shape("turtle")
-player.speed(0)
-player.up()
-
-screen = t.Screen()
-screen.title("Catch Turtle") # 그래픽 창 이름 지정
-screen.setup(500, 500) # 창 크기 500*500으로 설정
-
-score_board = t.Turtle()
+#score_board = t.Turtle()
 score_board.color("white") # 보드판 색깔 지정
 score_board.goto(150,150)
 location_list = [(0,200), (0,-200), (200,0), (-200,0)] # 거북이의 위치(위, 아래, 오른쪽, 왼쪽) 리스트로 생성
-
-
-
 
 def show_message(up, down): # 메세지 출력
     player.goto(0,200)
@@ -56,8 +45,8 @@ def start(): # 게임 시작
 
 
 def game_play(playing): # 게임 진행 함수
-    current_time = time.time()
-    maximum = current_time + 30
+    global random_name # 모양 변수 추가
+    maximum = time.time() + 30
 
     while playing:
         global life
@@ -65,6 +54,8 @@ def game_play(playing): # 게임 진행 함수
             playing = False
             return playing
 
+        random_name = random.choice(shape_list) # 추가 : 모양 랜덤 지정
+        player.shape(random_name) # 추가 : 모양 지정
         player.showturtle()
         player.up()
         location = random.choice(location_list)
@@ -80,59 +71,125 @@ def game_end(playing): # 게임 종료 함수
         text = "Your Score : %d" % score
         show_message("Game Over!", text)
         score = 0
+        
 
-def turn_up(): # 오른쪽 방향키 함수
-    global score
-    global life
-    if player.position() == (0.00, 200.00):
+def turn_up(): # 위쪽 방향키 함수
+    global score,life
+
+    if player.position() == (0.00, 200.00) and random_name == shape_list[0]:
+        score = score + 2
+        print(player.shape())
+        player.settiltangle(-45)  # 추가 : -45도 회전
+        player.hideturtle()
+
+    elif player.position() == (0.00, 200.00) and random_name == shape_list[1]:
+        score = score + 1
+        print(player.shape())
+        player.hideturtle()
+        
+    elif player.position() == (0.00, 200.00):
         score = score + 1
         player.hideturtle()
         show_score(score)
         show_life(life)
+        
     else :
         life = life - 1 
         show_score(score)
         show_life(life)
 
-def turn_down():
-    global score
-    global life
-    if player.position() == (0.00, -200.00):
+    show_score(score)
+    
+
+def turn_down(): # 아래쪽 방향키 함수
+    global score,life
+
+    if player.position() == (0.00, -200.00) and random_name == shape_list[0]:
+        score = score + 2
+        print(player.shape())
+        player.settiltangle(45)  # 추가 : 45도 회전
+        player.hideturtle()
+
+    elif player.position() == (0.00, -200.00) and random_name == shape_list[1]:
+        score = score + 1
+        print(player.shape())
+        player.hideturtle()
+
+    elif player.position() == (0.00, -200.00):
         score = score + 1
         player.hideturtle()
         show_score(score)
         show_life(life)
-    else :
+        
+    else:
         life = life - 1 
         show_score(score)
         show_life(life)
+    
+    show_score(score)
+    
 
-def turn_left():
-   global score
-   global life
-   if player.position() == (-200.00, 0.00):
+def turn_left(): # 왼쪽 방향키 함수
+    global score,life
+    
+    if player.position() == (-200.00, 0.00) and random_name == shape_list[0]:
+        score = score + 2
+        print(player.shape())
+        player.settiltangle(90)  # 추가 : 90도 회전
+        player.hideturtle()
+    
+    
+    elif player.position() == (-200.00, 0.00) and random_name == shape_list[1]:
+        score = score + 1
+        print(player.shape())
+        player.hideturtle()
+        
+  
+   elif player.position() == (-200.00, 0.00):
        player.hideturtle()
        score = score + 1
        show_score(score)
        show_life(life)
-   else :
+       
+   else:
         life = life - 1 
         show_score(score)
         show_life(life)
+        
+   show_score(score)
+
+    
 
 
-def turn_right(): # 왼쪽 방향키 함수
-    global score
-    global life
-    if player.position() == (200.00, 0.00):
+def turn_right(): # 오른쪽 방향키 함수
+    global score,life  # 추가
+    if player.position() == (200.00, 0.00) and random_name == shape_list[0]:
+        score = score + 2
+        print(player.shape())
+        player.settiltangle(0)  # 추가 : 머리 방향 그대로
         player.hideturtle()
+        
+        
+    elif player.position() == (200.00, 0.00) and random_name == shape_list[1]:
         score = score + 1
+        print(player.shape())
+        player.hideturtle()
+        
+
+   
+    elif player.position() == (200.00, 0.00):
+        player.hideturtle()
+        score += 1
         show_score(score)
         show_life(life)
+        
     else :
         life = life - 1 
         show_score(score)
         show_life(life)
+        
+    show_score(score)
+
 
 def show_score(score): # 점수 출력
     score_board.clear()
@@ -176,6 +233,7 @@ root.geometry("1200x700") # 창 크기
 
 photo = PhotoImage(file = "/Users/077tech/Desktop/Team3Turtle/oss_project/KakaoTalk_Photo_2022-07-09-16-50-21.png",master = root) # image
 
+
 label1 = Label(root,width = 450,height = 450,relief = "solid",borderwidth = 10,padx = 5, pady = 10,image = photo)
 label1.pack() # L
 
@@ -187,45 +245,33 @@ def option():
     root2 = Tk()
     root2.title("Options Window")
     root2.geometry("1200x700")
-    
-    chkbox1 = Checkbutton(root2,text = "score 나타내기")
+
+    chkbox1 = Checkbutton(root2, text="score 나타내기")
     chkbox1.select()
     chkbox1.pack()
-    
-    chkbox2 = Checkbutton(root2,text = "키보드로 게임하기")
+
+    chkbox2 = Checkbutton(root2, text="키보드로 게임하기")
     chkbox2.select()
     chkbox2.pack()
-    
-    chkbox3 = Checkbutton(root2,text = "친구와 대결하기")
+
+    chkbox3 = Checkbutton(root2, text="친구와 대결하기")
     chkbox3.deselect()
     chkbox3.pack()
-    
-    
-btn1 = Button(root,width = 18,height = 3,padx = 5, pady = 10,text = "Options",command = option)
-btn1.pack() # options button
 
 
-def exit(): # exit 함수
-    root.destroy()
 
-btn2 = Button(root,width = 12,height = 5, padx = 5, pady = 10, text = "Exit",command = exit)
-btn2.pack() # Game exit button
-
-
+btn1 = Button(root, width=18, height=3, padx=5, pady=10, text="Options", command=option)
+btn1.pack()  # options button
 show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로
 
 t.done()
     
-    
-root = Tk()
-root.title("Catch Turtle")
-root.geometry("400x300")
+def exit():  # exit 함수
+    global root
+    root.destroy()
 
-
-bt1 = Button(root,width = 50, height = 30, text = "Game Start", command = main)
-bt1.pack()
-
-
+btn2 = Button(root, width=12, height=5, padx=5, pady=10, text="Exit", command=exit)
+btn2.pack()  # Game exit button
 
 root.mainloop()
 
