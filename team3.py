@@ -5,6 +5,7 @@ from tkinter import *
 
 score = 0
 
+
 # 기본 setting
 
 player = t.Turtle() # 거북이 객체 생성
@@ -20,9 +21,21 @@ screen = t.Screen()
 screen.title("Catch Turtle") # 그래픽 창 이름 지정
 screen.setup(500,500) # 창 크기 500*500으로 설정
 
+
+player = t.Turtle() # 거북이 객체 생성
+player.shape("turtle")
+player.speed(0)
+player.up()
+
+screen = t.Screen()
+screen.title("Catch Turtle") # 그래픽 창 이름 지정
+screen.setup(500, 500) # 창 크기 500*500으로 설정
+
+score_board = t.Turtle()
 score_board.color("white") # 보드판 색깔 지정
 score_board.goto(150,150)
 location_list = [(0,200), (0,-200), (200,0), (-200,0)] # 거북이의 위치(위, 아래, 오른쪽, 왼쪽) 리스트로 생성
+
 
 
 
@@ -103,6 +116,7 @@ def show_score(score): # 점수 출력
     score_board.pencolor("black")
     score_board.write("Score : %d" % score, False, "left", ("Arial", 13, "bold"))
     score_board.color("white")
+
     
 # ========================================================================= #
 # main part
@@ -115,6 +129,7 @@ def main(): # 메인 함수 호출
     screen.onkeypress(turn_up, "Up")
     screen.onkeypress(turn_down, "Down")
     screen.listen() # 이 명령어를 실행시켜야 키 입력모드가 실행되어 입력된 키에 반응
+
     show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면
 
 
@@ -163,6 +178,21 @@ def exit(): # exit 함수
 
 btn2 = Button(root,width = 12,height = 5, padx = 5, pady = 10, text = "Exit",command = exit)
 btn2.pack() # Game exit button
+
+
+    show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면으로
+
+    t.done()
+    
+    
+root = Tk()
+root.title("Catch Turtle")
+root.geometry("400x300")
+
+
+bt1 = Button(root,width = 50, height = 30, text = "Game Start", command = main)
+bt1.pack()
+
 
 
 root.mainloop()
