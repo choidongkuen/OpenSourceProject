@@ -189,7 +189,7 @@ root.title("Catch Turtle") # 창 이름
 root.geometry("1200x700") # 창 크기
 
 
-photo = PhotoImage(file = "/Users/077tech/Desktop/Team3Turtle/oss_project/KakaoTalk_Photo_2022-07-09-16-50-21.png",master = root) # image
+photo = PhotoImage(file = "Please insert your image file address here!!",master = root) # image
 
 
 
