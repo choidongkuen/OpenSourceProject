@@ -70,7 +70,7 @@ def game_end(playing): # 게임 종료 함수
         score_board.clear()
         text = "Your Score : %d" % score
         show_message("Game Over!", text)
-        show_message("Insert coins!",text)
+        # show_message("Insert coins!",text)
         score = 0
         
 
@@ -98,6 +98,7 @@ def turn_up(): # 위쪽 방향키 함수
         show_life(life)
 
     show_score(score)
+    show_life(life)
     
 
 def turn_down(): # 아래쪽 방향키 함수
@@ -124,6 +125,7 @@ def turn_down(): # 아래쪽 방향키 함수
         show_life(life)
     
     show_score(score)
+    show_life(life)
     
 
 def turn_left(): # 왼쪽 방향키 함수
@@ -152,6 +154,7 @@ def turn_left(): # 왼쪽 방향키 함수
         show_life(life)
         
     show_score(score)
+    show_life(life)
 
     
 
@@ -182,6 +185,7 @@ def turn_right(): # 오른쪽 방향키 함수
         show_life(life)
         
     show_score(score)
+    show_life(life)
 
 
 def show_score(score): # 점수 출력
@@ -224,7 +228,7 @@ root = Tk() # tikinter 객체 생성
 root.title("Catch Turtle") # 창 이름
 root.geometry("1200x700") # 창 크기
 
-photo = PhotoImage(file = "/Users/gim-wansig/Desktop/oss_project/oss_project/images (1).png",master = root) # image
+photo = PhotoImage(file = "/Users/077tech/Desktop/Team3Turtle/oss_project/KakaoTalk_Photo_2022-07-09-16-50-21.png",master = root) # image
 
 
 label1 = Label(root,width = 450,height = 450,relief = "solid",borderwidth = 10,padx = 5, pady = 10,image = photo)
