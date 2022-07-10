@@ -190,7 +190,7 @@ root.title("Catch Turtle") # 창 이름
 root.geometry("1200x700") # 창 크기
 
 
-photo = PhotoImage(file = "Please insert your image file address here!!",master = root) # image
+photo = PhotoImage(file = "/Users/gim-wansig/Desktop/oss_project/oss_project/images (1).png",master = root) # image
 
 
 
@@ -207,10 +207,12 @@ def rule():
     label3.pack()
     label4 = Label(root,text = "2: 키보드의 방향키를 이용하여 조작합니다.")
     label4.pack()
-    label5 = Label(root,text = "3: 거북이 or 원 모양이 랜덤하게 출현합니다. 집중력 필수!")
+    label5 = Label(root,text = "3: 거북이 or 원 or 삼각형 or 사각형 모양이 랜덤하게 출현합니다.")
     label5.pack()
     label6 = Label(root,text = "4: 캐릭터 방향과 키보드 방향이 일치시 1점 획득합니다.")
     label6.pack()
+    label7 = Label(root,text = "5: 집중력 100% 필수!!")
+    label7.pack()
     
     
     chkbox1 = Checkbutton(root, text="규칙을 확인했습니다.")
