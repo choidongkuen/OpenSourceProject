@@ -156,7 +156,7 @@ def show_score(score): # 점수 출력
     score_board.write("Score : %d" % score, False, "left", ("Arial", 13, "bold"))
     score_board.color("white")
     
-def show_life(life):
+def show_life(life): # 목습 출력
     score_board.color("white")
     score_board.goto(50, 150)
     score_board.pencolor("red")
