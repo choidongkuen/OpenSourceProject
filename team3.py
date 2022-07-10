@@ -1,4 +1,4 @@
-import turtle as t
+git import turtle as t
 import random
 import time
 from tkinter import *
