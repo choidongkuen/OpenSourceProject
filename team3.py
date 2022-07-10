@@ -70,7 +70,6 @@ def game_end(playing): # 게임 종료 함수
         score_board.clear()
         text = "Your Score : %d" % score
         show_message("Game Over!", text)
-        show_message("Insert coins!",text)
         score = 0
         
 
