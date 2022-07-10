@@ -12,7 +12,7 @@ player = t.Turtle() # 거북이 객체 생성
 screen = t.Screen()
 score_board = t.Turtle()
 
-shape_list = ["turtle", "circle"] # 추가 : 캐릭터 모양 추가
+shape_list = ["turtle", "circle", "triangle", "square"] # 추가 : 캐릭터 모양 추가
 player.shape(shape_list[0])
 player.speed(0)
 player.up()
@@ -77,22 +77,13 @@ def game_end(playing): # 게임 종료 함수
 def turn_up(): # 위쪽 방향키 함수
     global score,life
 
-    if player.position() == (0.00, 200.00) and random_name == shape_list[0]:
-        score = score + 2
+    if player.position() == (0.00, 200.00):
+        score = score + 1
         print(player.shape())
         player.settiltangle(-45)  # 추가 : -45도 회전
         player.hideturtle()
-
-    elif player.position() == (0.00, 200.00) and random_name == shape_list[1]:
-        score = score + 1
-        print(player.shape())
-        player.hideturtle()
-        
-    elif player.position() == (0.00, 200.00):
-        score = score + 1
-        player.hideturtle()
         show_life(life)
-        
+
     else :
         life = life - 1
         show_life(life)
@@ -104,49 +95,30 @@ def turn_up(): # 위쪽 방향키 함수
 def turn_down(): # 아래쪽 방향키 함수
     global score,life
 
-    if player.position() == (0.00, -200.00) and random_name == shape_list[0]:
-        score = score + 2
+    if player.position() == (0.00, -200.00):
+        score = score + 1
         print(player.shape())
         player.settiltangle(45)  # 추가 : 45도 회전
         player.hideturtle()
-
-    elif player.position() == (0.00, -200.00) and random_name == shape_list[1]:
-        score = score + 1
-        print(player.shape())
-        player.hideturtle()
-
-    elif player.position() == (0.00, -200.00):
-        score = score + 1
-        player.hideturtle()
         show_life(life)
-        
+
     else:
         life = life - 1
         show_life(life)
     
     show_score(score)
     show_life(life)
+
     
 
 def turn_left(): # 왼쪽 방향키 함수
     global score,life
     
-    if player.position() == (-200.00, 0.00) and random_name == shape_list[0]:
-        score = score + 2
+    if player.position() == (-200.00, 0.00):
+        score = score + 1
         print(player.shape())
         player.settiltangle(90)  # 추가 : 90도 회전
         player.hideturtle()
-    
-    
-    elif player.position() == (-200.00, 0.00) and random_name == shape_list[1]:
-        score = score + 1
-        print(player.shape())
-        player.hideturtle()
-        
-  
-    elif player.position() == (-200.00, 0.00):
-        player.hideturtle()
-        score = score + 1
         show_life(life)
            
     else:
@@ -161,25 +133,13 @@ def turn_left(): # 왼쪽 방향키 함수
 
 def turn_right(): # 오른쪽 방향키 함수
     global score,life  # 추가
-    if player.position() == (200.00, 0.00) and random_name == shape_list[0]:
-        score = score + 2
+    if player.position() == (200.00, 0.00):
+        score = score + 1
         print(player.shape())
         player.settiltangle(0)  # 추가 : 머리 방향 그대로
         player.hideturtle()
-        
-        
-    elif player.position() == (200.00, 0.00) and random_name == shape_list[1]:
-        score = score + 1
-        print(player.shape())
-        player.hideturtle()
-        
-
-   
-    elif player.position() == (200.00, 0.00):
-        player.hideturtle()
-        score += 1
         show_life(life)
-        
+
     else :
         life = life - 1
         show_life(life)
@@ -228,7 +188,9 @@ root = Tk() # tikinter 객체 생성
 root.title("Catch Turtle") # 창 이름
 root.geometry("1200x700") # 창 크기
 
+
 photo = PhotoImage(file = "/Users/077tech/Desktop/Team3Turtle/oss_project/KakaoTalk_Photo_2022-07-09-16-50-21.png",master = root) # image
+
 
 
 label1 = Label(root,width = 450,height = 450,relief = "solid",borderwidth = 10,padx = 5, pady = 10,image = photo)
