@@ -107,7 +107,8 @@ def turn_down(): # 아래쪽 방향키 함수
         show_life(life)
     
     show_score(score)
-    show_life()
+    show_life(life)
+
     
 
 def turn_left(): # 왼쪽 방향키 함수
@@ -187,7 +188,9 @@ root = Tk() # tikinter 객체 생성
 root.title("Catch Turtle") # 창 이름
 root.geometry("1200x700") # 창 크기
 
-photo = PhotoImage(file = "/Users/LG/Desktop/전공, 교양/계절학기/오픈소스/tur_project_final/oss_project/images(1).png",master = root) # image
+
+photo = PhotoImage(file = "/Users/077tech/Desktop/Team3Turtle/oss_project/KakaoTalk_Photo_2022-07-09-16-50-21.png",master = root) # image
+
 
 
 label1 = Label(root,width = 450,height = 450,relief = "solid",borderwidth = 10,padx = 5, pady = 10,image = photo)
