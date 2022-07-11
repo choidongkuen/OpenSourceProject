@@ -223,11 +223,8 @@ def rule():
     
     label6 = Label(root,text = "4: 캐릭터 방향과 키보드 방향이 일치시 1점 획득합니다.")
     label6.pack()
-    
-    label7 = Label(root,text = "5: 집중력 100% 필수!!")
-    label7.pack()
-    
-    
+
+   
     label7 = Label(root,text = "5: 집중력 100% 필수!!")
     label7.pack()
     
