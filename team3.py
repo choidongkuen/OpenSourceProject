@@ -176,7 +176,7 @@ def main(): # 메인 함수 호출
     screen.onkeypress(turn_down, "Down")
     screen.listen() # 이 명령어를 실행시켜야 키 입력모드가 실행되어 입력된 키에 반응
 
-    show_message("Let's Catch Turtles!", "[Space]") # 게임 시작하기 전 첫 화면
+    show_message("Let's Catch Turtles!", "[Press Space]") # 게임 시작하기 전 첫 화면
 
 
     t.done()
@@ -193,7 +193,7 @@ x,y = (sw - w)/2 , (sh - h)/2
 root.geometry("%dx%d+%d+%d"%(w,h,x,y)) # 창을 중앙으로 설정
 
 
-photo = PhotoImage(file = "/Users/gim-wansig/Desktop/oss_project/oss_project/images (1).png",master = root) # image
+photo = PhotoImage(file = "Image Address",master = root) # image
 
 
 
