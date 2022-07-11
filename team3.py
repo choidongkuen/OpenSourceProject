@@ -194,7 +194,11 @@ x,y = (sw - w)/2 , (sh - h)/2
 root.geometry("%dx%d+%d+%d"%(w,h,x,y)) # 창을 중앙으로 설정
 
 
+<<<<<<< HEAD
 photo = PhotoImage(file = "/Users/gim-wansig/Desktop/oss_project/oss_project/images (1).png",master = root) # image
+=======
+photo = PhotoImage(file = "Image Address",master = root) # image
+>>>>>>> origin/main
 
 
 
@@ -224,10 +228,13 @@ def rule():
     
     label6 = Label(root,text = "4: 캐릭터 방향과 키보드 방향이 일치시 1점 획득합니다.")
     label6.pack()
+
     
     label7 = Label(root,text = "5: 목숨은 10개이며, 다른 방향을 선택시 목숨이 -1되니 주의해주세요.")
     label7.pack()
-    
+
+
+
     label8 = Label(root,text = "6: 집중력 100% 필수!!")
     label8.pack()
     
