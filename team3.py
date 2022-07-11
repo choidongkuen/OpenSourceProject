@@ -176,7 +176,7 @@ def main(): # 메인 함수 호출
     screen.onkeypress(turn_down, "Down")
     screen.listen() # 이 명령어를 실행시켜야 키 입력모드가 실행되어 입력된 키에 반응
 
-    show_message("Let's Catch Turtle!", "[Space]") # 게임 시작하기 전 첫 화면
+    show_message("Let's Catch Turtles!", "[Space]") # 게임 시작하기 전 첫 화면
 
 
     t.done()
@@ -186,10 +186,14 @@ def main(): # 메인 함수 호출
 
 root = Tk() # tikinter 객체 생성
 root.title("Catch Turtle") # 창 이름
-root.geometry("1200x700") # 창 크기
+
+w,h = 1200,700
+sw,sh = root.winfo_screenwidth(),root.winfo_screenheight()
+x,y = (sw - w)/2 , (sh - h)/2
+root.geometry("%dx%d+%d+%d"%(w,h,x,y)) # 창을 중앙으로 설정
 
 
-photo = PhotoImage(file = "Please insert your image file address here!!",master = root) # image
+photo = PhotoImage(file = "/Users/gim-wansig/Desktop/oss_project/oss_project/images (1).png",master = root) # image
 
 
 
@@ -199,27 +203,40 @@ label1.pack()
 def rule():
     root = Tk()
     root.title("Game Rules")
-    root.geometry("400x400")
+    
+    w,h = 600,300
+    sw,sh = root.winfo_screenwidth(),root.winfo_screenheight()
+    x,y = (sw - w) / 2, (sh-h)/2
+    root.geometry("%dx%d+%d+%d" %(w,h,x,y)) # 창을 중앙으로 설정
+    
     label2 = Label(root,relief = "solid",borderwidth = 10,padx = 5, pady = 10,text = " == 게임 규칙 ==")
     label2.pack()
+    
     label3 = Label(root,text = "1: 제한 시간은 30초가 주어집니다.")
     label3.pack()
+    
     label4 = Label(root,text = "2: 키보드의 방향키를 이용하여 조작합니다.")
     label4.pack()
-    label5 = Label(root,text = "3: 거북이 or 원 or 삼각형 or 사각형 모양이 랜덤하게 출현합니다. 집중력 필수!")
+
+    label5 = Label(root,text = "3: 거북이 or 원 or 삼각형 or 사각형 모양이 랜덤하게 출현합니다.")
     label5.pack()
+    
     label6 = Label(root,text = "4: 캐릭터 방향과 키보드 방향이 일치시 1점 획득합니다.")
     label6.pack()
+    
     label7 = Label(root,text = "5: 집중력 100% 필수!!")
     label7.pack()
     
+    
+    label7 = Label(root,text = "5: 집중력 100% 필수!!")
+    label7.pack()
     
     
     chkbox1 = Checkbutton(root, text="규칙을 확인했습니다.")
     chkbox1.deselect()
     chkbox1.pack()
     
-    btn3 = btn1 = Button(root, text= "Start", command=main)
+    btn3 = btn1 = Button(root,padx = 5, pady= 10, text= "Start", command=main)
     btn3.pack()  # options button
 
     
@@ -231,7 +248,11 @@ btn0.pack() # start button
 def option():
     root2 = Tk()
     root2.title("Options Window")
-    root2.geometry("500x500")
+    
+    w,h= 500,100
+    sw,sh = root2.winfo_screenwidth(),root2.winfo_screenheight()
+    x,y = (sw-w)/2,(sh-h)/2
+    root2.geometry("%dx%d+%d+%d"%(w,h,x,y)) # 창을 중앙으로 설정
 
     chkbox1 = Checkbutton(root2, text="score 나타내기")
     chkbox1.select()
@@ -246,9 +267,6 @@ def option():
     chkbox3.pack()
 
 
-    
-
-
 btn1 = Button(root, width=18, height=3, padx=5, pady=10, text="Options", command=option)
 btn1.pack()  # options button
 
@@ -261,6 +279,3 @@ btn2 = Button(root, width=12, height=5, padx=5, pady=10, text="Exit", command=ex
 btn2.pack()  # Game exit button
 
 root.mainloop()
-
-
-
