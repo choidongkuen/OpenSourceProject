@@ -16,3 +16,6 @@
 - 이기욱 : turn_left,turn_down,turn_up,game_end,scheduling
 - 공통 : making ppt & Feedback
 
+### How to proceed our Project
+ - We use various platforms and tools to complete our project efficiently.
+
