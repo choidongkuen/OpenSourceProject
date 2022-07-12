@@ -18,5 +18,5 @@
 
 ### How to proceed our Project
  - We use various platforms and tools to complete our project efficiently.
- - To make our GUI(graphic user interface), we use a python module named 'Tikinter'
+ - To make GUI(graphic user interface) part, we use a python module named 'Tikinter'
 
