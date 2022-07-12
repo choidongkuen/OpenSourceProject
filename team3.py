@@ -194,11 +194,8 @@ x,y = (sw - w)/2 , (sh - h)/2
 root.geometry("%dx%d+%d+%d"%(w,h,x,y)) # 창을 중앙으로 설정
 
 
-<<<<<<< HEAD
+
 photo = PhotoImage(file = "/Users/gim-wansig/Desktop/oss_project/oss_project/images (1).png",master = root) # image
-=======
-photo = PhotoImage(file = "Image Address",master = root) # image
->>>>>>> origin/main
 
 
 
