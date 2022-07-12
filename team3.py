@@ -1,11 +1,10 @@
-
 import turtle as t
 import random
 import time
 from tkinter import *
 
-score = 0
-life = 10
+score = 0 
+life = 10 # 초기 점수와 
 
 # 기본 setting
 
