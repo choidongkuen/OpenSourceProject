@@ -3,9 +3,8 @@ import random
 import time
 from tkinter import *
 
-score = 0 
+score = 0
 life = 10 # 초기 점수와 
-
 # 기본 setting
 
 player = t.Turtle() # 거북이 객체 생성
@@ -16,7 +15,7 @@ shape_list = ["turtle", "circle", "triangle", "square"] # 추가 : 캐릭터 모
 player.shape(shape_list[0])
 player.speed(0)
 player.up()
-    
+
 
 screen = t.Screen()
 screen.title("Catch Turtle") # 그래픽 창 이름 지정
@@ -72,7 +71,7 @@ def game_end(playing): # 게임 종료 함수
         show_message("Game Over!", text)
         # show_message("Insert coins!",text)
         score = 0
-        
+
 
 def turn_up(): # 위쪽 방향키 함수
     global score,life
@@ -90,7 +89,7 @@ def turn_up(): # 위쪽 방향키 함수
 
     show_score(score)
     show_life(life)
-    
+
 
 def turn_down(): # 아래쪽 방향키 함수
     global score,life
@@ -105,30 +104,30 @@ def turn_down(): # 아래쪽 방향키 함수
     else:
         life = life - 1
         show_life(life)
-    
+
     show_score(score)
     show_life(life)
 
-    
+
 
 def turn_left(): # 왼쪽 방향키 함수
     global score,life
-    
+
     if player.position() == (-200.00, 0.00):
         score = score + 1
         print(player.shape())
         player.settiltangle(90)  # 추가 : 90도 회전
         player.hideturtle()
         show_life(life)
-           
+
     else:
         life = life - 1
         show_life(life)
-        
+
     show_score(score)
     show_life(life)
 
-    
+
 
 
 def turn_right(): # 오른쪽 방향키 함수
@@ -143,7 +142,7 @@ def turn_right(): # 오른쪽 방향키 함수
     else :
         life = life - 1
         show_life(life)
-        
+
     show_score(score)
     show_life(life)
 
@@ -155,7 +154,7 @@ def show_score(score): # 점수 출력
     score_board.pencolor("black")
     score_board.write("Score : %d" % score, False, "left", ("Arial", 13, "bold"))
     score_board.color("white")
-    
+
 def show_life(life): # 목습 출력
     score_board.color("white")
     score_board.goto(50, 150)
@@ -163,7 +162,7 @@ def show_life(life): # 목습 출력
     score_board.write("Life : %d" % life, False, "left", ("Arial", 13, "bold"))
     score_board.color("white")
 
-    
+
 # ========================================================================= #
 # main part
 
@@ -204,28 +203,28 @@ label1.pack()
 def rule():
     root = Tk()
     root.title("Game Rules")
-    
+
     w,h = 600,300
     sw,sh = root.winfo_screenwidth(),root.winfo_screenheight()
     x,y = (sw - w) / 2, (sh-h)/2
     root.geometry("%dx%d+%d+%d" %(w,h,x,y)) # 창을 중앙으로 설정
-    
+
     label2 = Label(root,relief = "solid",borderwidth = 10,padx = 5, pady = 10,text = " == 게임 규칙 ==")
     label2.pack()
-    
+
     label3 = Label(root,text = "1: 제한 시간은 30초가 주어집니다.")
     label3.pack()
-    
+
     label4 = Label(root,text = "2: 키보드의 방향키를 이용하여 조작합니다.")
     label4.pack()
 
     label5 = Label(root,text = "3: 거북이 or 원 or 삼각형 or 사각형 모양이 랜덤하게 출현합니다.")
     label5.pack()
-    
+
     label6 = Label(root,text = "4: 캐릭터 방향과 키보드 방향이 일치시 1점 획득합니다.")
     label6.pack()
 
-    
+
     label7 = Label(root,text = "5: 목숨은 10개이며, 다른 방향을 선택시 목숨이 -1되니 주의해주세요.")
     label7.pack()
 
@@ -233,16 +232,16 @@ def rule():
 
     label8 = Label(root,text = "6: 집중력 100% 필수!!")
     label8.pack()
-    
-    
+
+
     chkbox1 = Checkbutton(root, text="규칙을 확인했습니다.")
     chkbox1.deselect()
     chkbox1.pack()
-    
+
     btn3 = btn1 = Button(root,padx = 5, pady= 10, text= "Start", command=main)
     btn3.pack()  # options button
 
-    
+
 
 btn0 = Button(root,width = 22,height = 3,padx = 5, pady= 10,text = "Game Start", command = rule,highlightcolor = "green")
 btn0.pack() # start button
@@ -251,7 +250,7 @@ btn0.pack() # start button
 def option():
     root2 = Tk()
     root2.title("Options Window")
-    
+
     w,h= 500,100
     sw,sh = root2.winfo_screenwidth(),root2.winfo_screenheight()
     x,y = (sw-w)/2,(sh-h)/2
