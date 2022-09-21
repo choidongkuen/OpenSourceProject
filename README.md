@@ -20,3 +20,8 @@
  - We use various platforms and tools to complete our project efficiently.
  - To make GUI(graphic user interface) part, we use a python module named 'Tkinter'
 
+
+### Info
+ - IDE : Pycharm
+ - Tools : Google Meet, Various Messenger etc)
+ 
